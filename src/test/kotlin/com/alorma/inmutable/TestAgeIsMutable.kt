@@ -17,10 +17,19 @@ class TestAgeIsMutable {
     }
 
     @Test
-    fun yearIsNotModified() {
+    fun shouldNotChangeAge_whenFieldAgeIsModifiedDirectly() {
         assertEquals(1992, student.age.year)
 
         age.year = 1993
+
+        assertEquals(1992, student.age.year)
+    }
+
+    @Test
+    fun shouldNotChangeAge_whenFieldAgeIsModifiedFromStudent() {
+        assertEquals(1992, student.age.year)
+
+        student.age.year = 1993
 
         assertEquals(1992, student.age.year)
     }
